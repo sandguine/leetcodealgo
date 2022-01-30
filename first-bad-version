@@ -31,7 +31,7 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        a = range(1, n)
+        
         left = 1
         right = n
     
