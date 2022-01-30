@@ -23,6 +23,11 @@
 # All the integers in nums are unique.
 # nums is sorted in ascending order.
 
+
+# Solution 1: updating one comparing point in the middle.
+# Time Complexity: 	Θ(log(n))
+# Memory Complexity: 	Θ(n)
+
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         # find middle index
@@ -42,3 +47,28 @@ class Solution:
                 left = mid + 1
             elif target < nums[mid]: # on the left of the list
                 right = mid - 1
+
+# Solution 2: two pointers. Similar to solution 1.
+# Time Complexity: 	Θ(log(n))
+# Memory Complexity: 	Θ(n)
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        right = 0
+        left = len(nums)-1
+        
+        while right <= left:
+            
+            # check right
+            if nums[right] == target:
+                return right
+            else:
+                right+=1
+            
+            # check left
+            if nums[left] == target:
+                return left
+            else:
+                left-=1
+        
+        return -1
